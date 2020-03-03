@@ -1,0 +1,2 @@
+class UsersQuotesController < ApplicationController
+end
