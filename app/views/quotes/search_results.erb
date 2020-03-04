@@ -1,0 +1,18 @@
+
+<% author_obj = Author.search(params[:search_term].titleize) %>
+<% if author_obj %>
+
+<h1>Authors</h1>
+<%= link_to author_obj.name, author_obj %>
+
+<% elsif !Quote.search(params[:search_term]).empty? %>
+
+<h2>Quotes<h2>
+<% Quote.search(params[:search_term]).each do |result| %>
+    <h4>"<%= result.content %>"<%=link_to "Quote", quote_path(result)%></h4>
+    - <%= link_to result.author.name, author_path(result.author.id) %><br><br>
+<% end %>
+
+<% else %>
+<%=@error%>
+<% end %>
