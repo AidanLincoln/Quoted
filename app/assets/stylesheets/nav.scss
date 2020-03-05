@@ -1,15 +1,13 @@
 header {
     background: black;
-    padding: 30px;
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-    }
+    padding: 10px;
     a {
       text-decoration: none;
-      font-weight: bold;
+      position: relative;
+      top: 20px;
+      font-size: larger;
       color: white;
+      font-family: 'Droid Sans',sans-serif;
     }
   }
   
@@ -18,5 +16,17 @@ header {
     flex-direction: row;
     justify-content: space-evenly;
   }
-  
+  .nav a:hover {
+    transform: scale(1.35);
+  }
+  #home {
+    position: relative;
+    top: -18px;
+  }
+
+  #search_bar {
+    position: relative;
+    top: 20px;
+  }
+ 
   
