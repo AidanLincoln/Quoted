@@ -1,5 +1,5 @@
 class QuotesController < ApplicationController
-    
+    before_action :authorized, only: [:new, :edit, :destroy]
     def index
         
     end
@@ -24,11 +24,12 @@ class QuotesController < ApplicationController
 
     def create
         #should check that user is logged in
+        params[:quote][:author] = params[:quote][:author].titleize
         if Author.find_by(name: params[:quote][:author])
             not_new_author = Author.find_by(name: params[:quote][:author])
             @new_quote = Quote.create(content: params[:quote][:content], author_id: not_new_author.id)
         else
-            new_author = Author.create(name: params[:quote][:author].titleize)
+            new_author = Author.create(name: params[:quote][:author])
             @new_quote = Quote.create(content: params[:quote][:content], author_id: new_author.id)
         end
         redirect_to @new_quote
@@ -41,6 +42,7 @@ class QuotesController < ApplicationController
     end 
 
     def update
+        params[:quote][:author] = params[:quote][:author].titleize
         @quote = Quote.find(params[:id])
         if Author.find_by(name: params[:quote][:author])
             not_new_author = Author.find_by(name: params[:quote][:author])
@@ -50,7 +52,7 @@ class QuotesController < ApplicationController
             @quote.update(content: params[:quote][:content], author_id: new_author.id)
         end
         if @quote.valid?
-            redirect_to @quote
+            redirect_to user_path(session[:user_id])
         else 
             flash[:messages] = "Oops!"
             render :edit
@@ -58,8 +60,15 @@ class QuotesController < ApplicationController
         #only allow user to edit a quote if they are the author.
     end
 
-    def delete
-
+    def destroy
+        @user = User.find(session[:user_id])
+        @quote = Quote.find(params[:quote_id])
+        if Author.find(@quote.author_id).name == @user.username
+            @quote.destroy
+            redirect_to @user
+        else
+            nil
+        end
         #author can only delete quotes they made
     end
 

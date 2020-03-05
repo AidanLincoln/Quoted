@@ -6,8 +6,7 @@
     <% if !!user_author%>
         <% users_quotes = Quote.where(author_id: user_author.id) %> 
         <% users_quotes.each do |q| %>
-            <h3><%=q.content%><%= button_to "Edit Quote", edit_quote_path(q), method: :get%></h3><br>
-
+            <h3><%=q.content%><%= button_to "Edit Quote", edit_quote_path(q), method: :get%><%= button_to "Delete Quote", q, method: :delete, params: {quote_id: q.id} %></h3><br>
         <% end %>
     <% end %>
 <% end %>

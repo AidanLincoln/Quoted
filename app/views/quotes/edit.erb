@@ -1,8 +1,8 @@
 <h1>Quote Editor</h1>
 <%= form_for @quote do |q| %>
     <%= q.label :author %>
-    <%= q.text_field :author %>
+    <%= q.text_field :author, value: @quote.author.name %><br><br>
     <%= q.label :content %>
-    <%= q.text_area :content %>
+    <%= q.text_area :content %><br><br>
     <%= q.submit %>
 <% end %>

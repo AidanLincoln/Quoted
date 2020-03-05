@@ -12,13 +12,14 @@
   <body>
     <header class='clearfix'>
   <div class="nav">
+      <div id="home"><%= link_to image_tag("/assets/home.png"), root_path %></div>
       <%=form_tag search_results_path do %>
         <label></label>
         <%= text_field_tag :search_term %>
         <%= submit_tag "Search" %>
       <% end %>
-      <%= link_to "Add New Quotes", new_quote_path %>
       <% if logged_in?%>
+      <%= link_to "Add New Quotes", new_quote_path %>
         <%= link_to "Favorite Quotes", favorites_path %>
         <%= link_to "Sign Out", logout_path %>
         <%= link_to "Account", user_path(current_user)%>

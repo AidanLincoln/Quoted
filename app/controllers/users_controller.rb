@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+    before_action :authorized, only: [:show, :edit, :add_favorite_quote, :favorites, :remove_favorite, :destroy]
     def new
         @user = User.new
     end
@@ -49,13 +49,12 @@ class UsersController < ApplicationController
         redirect_to favorites_path
     end
     
-    def 
 
     def destroy
         @user = User.find(session[:user_id])
         session.delete(:user_id)
         @user.destroy
-        redirect_to login_path
+        redirect_to @user
     end
 
     private 

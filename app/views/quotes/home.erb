@@ -1,3 +1,4 @@
 <% quote = Quote.all.sample %>
 <h1><%= quote.content %></h1>
-<h1>- <%= link_to quote.author.name, author_path(quote.author) %></h1>
+<%= button_to "Go to Quote", quote_path(quote), method: :get%>
+<h1>- <%= link_to quote.author.name, author_path(quote.author) %> </h1>
