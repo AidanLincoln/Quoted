@@ -1,5 +1,5 @@
 <h1><%= @author.name %></h1>
 <h4>Author's Quotes</h4>
 <% @author.quotes.each do |quote| %>
-<em><%=quote.content %><em><br><br>
+<em><%=quote.content %><em><%=button_to "Go to Quote", quote_path(quote), method: :get%><br><br>
 <% end %>

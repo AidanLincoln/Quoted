@@ -1,0 +1,6 @@
+<h1><%=@user.username.titleize%>'s Favorite Quotes</h1>
+<% @user.quotes.each do |q| %>
+<h3><%= q.content %><%=button_to "Go to Quote", quote_path(q), method: :get%>
+<%= button_to "Remove", remove_path, method: :post, params: {quote_id: q.id}%></h3>
+- <%= link_to q.author.name, q.author %><br><br><br>
+<% end %>

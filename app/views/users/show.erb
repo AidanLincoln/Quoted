@@ -1,1 +1,13 @@
 <%= @user.username %>
+<% if @user.id == session[:user_id]%>
+    <%= link_to "Edit Profile", edit_user_path(@user)%>
+    <%= button_to "Delete Account", '/users/delete', method: :delete %>
+    <% user_author = Author.find_by(name: @user.username)%>
+    <% if !!user_author%>
+        <% users_quotes = Quote.where(author_id: user_author.id) %> 
+        <% users_quotes.each do |q| %>
+            <h3><%=q.content%><%= button_to "Edit Quote", edit_quote_path(q), method: :get%></h3><br>
+
+        <% end %>
+    <% end %>
+<% end %>

@@ -15,9 +15,17 @@
       <%=form_tag search_results_path do %>
         <label></label>
         <%= text_field_tag :search_term %>
-        <%= submit_tag "Search" %></li>
+        <%= submit_tag "Search" %>
       <% end %>
-      <%= link_to "New Quote", new_quote_path %>
+      <%= link_to "Add New Quotes", new_quote_path %>
+      <% if logged_in?%>
+        <%= link_to "Favorite Quotes", favorites_path %>
+        <%= link_to "Sign Out", logout_path %>
+        <%= link_to "Account", user_path(current_user)%>
+      <% else %>
+        <%= link_to "Create Account", new_user_path%>
+        <%= link_to "Sign In", login_path%>
+      <% end %>
   </div>
 </header>
     

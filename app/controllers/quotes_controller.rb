@@ -4,7 +4,7 @@ class QuotesController < ApplicationController
         
     end
     
-    def search
+    def home
 
     end
 
@@ -36,15 +36,36 @@ class QuotesController < ApplicationController
     end
 
     def edit 
+        @quote = Quote.find(params[:id])
         #only allow user to edit a quote if they are the author.
     end 
 
     def update
+        @quote = Quote.find(params[:id])
+        if Author.find_by(name: params[:quote][:author])
+            not_new_author = Author.find_by(name: params[:quote][:author])
+            @quote.update(content: params[:quote][:content], author_id: not_new_author.id)
+        else
+            new_author = Author.create(name: params[:quote][:author].titleize)
+            @quote.update(content: params[:quote][:content], author_id: new_author.id)
+        end
+        if @quote.valid?
+            redirect_to @quote
+        else 
+            flash[:messages] = "Oops!"
+            render :edit
+        end
         #only allow user to edit a quote if they are the author.
     end
 
     def delete
+
         #author can only delete quotes they made
+    end
+
+    private
+    def quote_params
+        params.require(:quote).permit(:content, :author_id)
     end
 
 end

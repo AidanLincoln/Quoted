@@ -1,0 +1,9 @@
+<%= form_for @user do |f|%>
+    <%= f.label :username %>
+    <%= f.text_field :username %> <br><br>
+    <%= f.submit "Update Account"%>
+<% end %>
+
+<% if flash[:messages] %>
+<%= flash[:messages] %>
+<% end %>

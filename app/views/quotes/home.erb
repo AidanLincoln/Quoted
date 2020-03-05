@@ -1,0 +1,3 @@
+<% quote = Quote.all.sample %>
+<h1><%= quote.content %></h1>
+<h1>- <%= link_to quote.author.name, author_path(quote.author) %></h1>

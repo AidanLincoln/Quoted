@@ -7,9 +7,9 @@
 
 <% elsif !Quote.search(params[:search_term]).empty? %>
 
-<h2>Quotes<h2>
+<h1>Quotes</h1>
 <% Quote.search(params[:search_term]).each do |result| %>
-    <h4>"<%= result.content %>"<%=link_to "Quote", quote_path(result)%></h4>
+    <h4>"<%= result.content %>"<br><br><%=button_to "Go to Quote", quote_path(result), method: :get%></h4>
     - <%= link_to result.author.name, author_path(result.author.id) %><br><br>
 <% end %>
 
