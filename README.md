@@ -9,35 +9,35 @@ Quoted is a website for browsing, creating, or storing your favorite quotes.
 
 ## A User Can:
 
-# Home page:
+### Home page:
 
 - See a random quote
 
-# Search:
+### Search:
 
 - Search through a database of quotes / authors
 - View all quotes by a certain author
 - View pages for individual quotes
 
-# Account:
+### Account:
 
 - Create a new account
 - Sign in, sign out, or edit account
 - See quotes authored by your username
 - Edit quotes authored by your username
 
-# Add a New Quote (only if logged in):
+### Add a New Quote (only if logged in):
 
 - Add quote by any author to the database (including yourself)
 
-# User's Favorite Quotes (only if logged in):
+### User's Favorite Quotes (only if logged in):
 
 - Store a favorite quote 
 - Remove a favorite quote
 
 ## Installation
 
-# OS X:
+### OS X:
 
 - Download or clone the repository
 - Navigate to the repository using `cd`
@@ -50,7 +50,7 @@ Quoted is a website for browsing, creating, or storing your favorite quotes.
 - To boot up the website, type `rails s` in your terminal
 - On your browser, type `localhost:3000` (or replace '3000' with whatever port you started the server with)
 
-# Navigation bar
+### Navigation bar
 
 - 'Q' in the top left is the home page button
 - Next to the home button, there is a search bar for looking up quotes or authors.
