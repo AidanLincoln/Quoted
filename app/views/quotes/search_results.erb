@@ -9,9 +9,9 @@
 
 <div id="custom_title">Quotes</div>
 <% Quote.search(params[:search_term]).each do |result| %>
-    <div id="quote_box">"<%= result.content %>"<br>
-    - <%= link_to result.author.name, author_path(result.author.id) %>
-    <%=button_to "Go to Quote", quote_path(result), method: :get%></div>
+    <div id="quote_box">"<%= result.content %>"<br><br>
+    - <%= link_to result.author.name, author_path(result.author.id) %><br><br>
+    <%=button_to "Go to Quote", quote_path(result), method: :get, class: "custom_button"%></div>
     <br><br>
 <% end %>
 

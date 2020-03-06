@@ -1,4 +1,4 @@
-<div id="custom_title"><%= @author.name %>'s Quotes</div>
+<div id="custom_title"><%= @author.name%>'s Quotes</div>
 <% @author.quotes.each do |quote| %>
-<div id="quote_box">"<%=quote.content %>"<%=button_to "Go to Quote", quote_path(quote), method: :get%></div><br><br>
+<div id="quote_box">"<%=quote.content %>"<%=button_to "Go to Quote", quote_path(quote), method: :get, class: "custom_button"%></div><br><br>
 <% end %>

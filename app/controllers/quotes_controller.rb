@@ -24,8 +24,7 @@ class QuotesController < ApplicationController
 
     def create
         #should check that user is logged in
-        params[:quote][:author] = params[:quote][:author].titleize
-        if Author.find_by(name: params[:quote][:author])
+        if Author.find_by(name: params[:quote][:author]) || Author.find_by(name: params[:quote][:author].downcase)
             not_new_author = Author.find_by(name: params[:quote][:author])
             @new_quote = Quote.create(content: params[:quote][:content], author_id: not_new_author.id)
         else

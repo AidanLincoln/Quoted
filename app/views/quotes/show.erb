@@ -1,5 +1,5 @@
 <label><div id="quote_box"><%= link_to @quote.author.name, @quote.author %><br><br></label>
-"<%= @quote.content %>"
+"<%= @quote.content %>"<br><br>
 <% if logged_in?%>
-<%= button_to "Add to Favorites", add_favorite_path, method: :post, params: {quote_id: @quote.id}%>
+<%= button_to "Add to Favorites", add_favorite_path, method: :post, class: "custom_button", params: {quote_id: @quote.id}%>
 <% end %></div>

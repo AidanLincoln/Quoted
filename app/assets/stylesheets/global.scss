@@ -1,6 +1,7 @@
 a {
     color: white;
-    font-size: medium;
+    font-weight: lighter;
+    font-size: large;
 }
 body {
     background: rgb(27, 27, 27);
@@ -35,4 +36,32 @@ body {
     background: rgb(45, 45, 45);
     border-radius: 5px;
     color: white;
-  }
+    }
+
+    .custom_button {
+        
+        background-color: rgb(70, 70, 70);
+        border: none;
+        border-radius: 2px;
+        color: white;
+        padding: 0.5%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 15px;
+        position: relative;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    }
+    .custom_button:hover {
+
+        transform: scale(1.12);
+        background-color: rgb(200, 200, 200);
+        color: rgb(25, 25, 25);
+        font-weight: bold;
+        display: inline-block;
+        font-size: 15px;
+        position: relative;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    }
+
+

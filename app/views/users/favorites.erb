@@ -1,9 +1,9 @@
 <div id="custom_title"><%=@user.username.titleize%>'s Favorite Quotes</div>
 <% @user.quotes.each do |q| %>
-<div id="quote_box">"<%= q.content %>"<br>
-- <%= link_to q.author.name, q.author %>
-<%=button_to "Go to Quote", quote_path(q), method: :get%>
-<%= button_to "Remove", remove_path, method: :post, params: {quote_id: q.id}%></div>
+<div id="quote_box">"<%= q.content %>"<br><br>
+- <%= link_to q.author.name, q.author %><br><br>
+<%=button_to "Go to Quote", quote_path(q), method: :get, class: "custom_button"%>
+<%= button_to "Remove", remove_path, method: :post, class: "custom_button", params: {quote_id: q.id}%></div>
 <br><br><br>
 
 <% end %>
