@@ -1,8 +1,11 @@
-<%= form_for @user do |f|%>
+<div id="custom_title">Edit Account</div>
+<div id="custom_form"><%= form_for @user do |f|%>
     <%= f.label :username %>
-    <%= f.text_field :username %> <br><br>
+    <%= f.text_field :username %> <br>
+    <%= f.label :password%>
+    <%= f.password_field :password%><br><br>
     <%= f.submit "Update Account"%>
-<% end %>
+<% end %></div>
 
 <% if flash[:messages] %>
 <%= flash[:messages] %>

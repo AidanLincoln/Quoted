@@ -1,12 +1,12 @@
-<%= @user.username %>
+<div id="custom_title"><%= @user.username %>'s Account</div>
 <% if @user.id == session[:user_id]%>
-    <%= link_to "Edit Profile", edit_user_path(@user)%>
-    <%= button_to "Delete Account", '/users/delete', method: :delete %>
+    <div id="custom_title"><%= button_to "Edit Account", edit_user_path(@user), method: 'get'%>
+    <%= button_to "Delete Account", '/users/delete', method: :delete %><br></div>
     <% user_author = Author.find_by(name: @user.username)%>
     <% if !!user_author%>
         <% users_quotes = Quote.where(author_id: user_author.id) %> 
         <% users_quotes.each do |q| %>
-            <h3><%=q.content%><%= button_to "Edit Quote", edit_quote_path(q), method: :get%><%= button_to "Delete Quote", q, method: :delete, params: {quote_id: q.id} %></h3><br>
+            <div id="quote_box">"<%=q.content%>"<%= button_to "Edit Quote", edit_quote_path(q), method: :get%><%= button_to "Delete Quote", q, method: :delete, params: {quote_id: q.id} %></div><br>
         <% end %>
     <% end %>
 <% end %>

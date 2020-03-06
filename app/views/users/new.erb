@@ -1,13 +1,15 @@
-<h1>Create a new account</h1>
+<div id="custom_title">Create a new account</div>
 
-<%= form_for @user do |f|%>
+<div id="custom_form"><%= form_for @user do |f|%>
     <%= f.label :username %>
     <%= f.text_field :username %> <br><br>
     <%= f.label :password %>
     <%= f.password_field :password %><br><br>
     <%= f.submit "Create Account"%>
-<% end %>
+<% end %></div>
 
 <% if flash[:messages] %>
-<%= flash[:messages] %>
+    <div id="custom_title"><% flash[:messages].each do |error| %>
+        <%= error%>
+    <% end %></div>
 <% end %>

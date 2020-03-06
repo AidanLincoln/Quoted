@@ -1,4 +1,6 @@
-<% quote = Quote.all.sample %>
-<h1><%= quote.content %></h1>
+<div id="homequote"><% quote = Quote.all.sample %>
+<%= quote.content %><br>
+- <%= link_to quote.author.name, author_path(quote.author) %>
+<br>
 <%= button_to "Go to Quote", quote_path(quote), method: :get%>
-<h1>- <%= link_to quote.author.name, author_path(quote.author) %> </h1>
+</div>

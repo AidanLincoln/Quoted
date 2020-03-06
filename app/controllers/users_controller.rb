@@ -10,7 +10,7 @@ class UsersController < ApplicationController
             @user.save
             redirect_to @user
         else 
-            flash[:messages] = "Please enter both fields."
+            flash[:messages] = @user.errors.full_messages
             render :new
         end
     end

@@ -2,17 +2,19 @@
 <% author_obj = Author.search(params[:search_term].titleize) %>
 <% if author_obj %>
 
-<h1>Authors</h1>
+<div id="custom_title">Authors</div>
 <%= link_to author_obj.name, author_obj %>
 
 <% elsif !Quote.search(params[:search_term]).empty? %>
 
-<h1>Quotes</h1>
+<div id="custom_title">Quotes</div>
 <% Quote.search(params[:search_term]).each do |result| %>
-    <h4>"<%= result.content %>"<br><br><%=button_to "Go to Quote", quote_path(result), method: :get%></h4>
-    - <%= link_to result.author.name, author_path(result.author.id) %><br><br>
+    <div id="quote_box">"<%= result.content %>"<br>
+    - <%= link_to result.author.name, author_path(result.author.id) %>
+    <%=button_to "Go to Quote", quote_path(result), method: :get%></div>
+    <br><br>
 <% end %>
 
 <% else %>
-<%=@error%>
+<div id="custom_title"><h1><%=@error%></h1></div>
 <% end %>

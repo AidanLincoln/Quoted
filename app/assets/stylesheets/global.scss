@@ -1,5 +1,13 @@
+a {
+    color: white;
+    font-size: medium;
+}
 body {
+    background: rgb(27, 27, 27);
     margin: 0;
+    color: white;
+    font-size: larger;
+    font-family: 'Droid Sans',sans-serif;
   }
   
   .content {
@@ -9,4 +17,22 @@ body {
   
   .clearfix {
     overflow: hidden;
+  }
+  #custom_title {
+    font-weight: lighter;
+    font-size: larger;
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+  #custom_form {
+    font-weight: lighter;
+    margin: auto;
+    padding: 2%;
+    text-align: center;
+    font-size: larger;
+    border: black;
+    background: rgb(45, 45, 45);
+    border-radius: 5px;
+    color: white;
   }

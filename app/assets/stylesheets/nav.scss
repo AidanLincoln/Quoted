@@ -1,12 +1,12 @@
 header {
-    background: black;
+    background: rgb(45, 45, 45);
     padding: 10px;
     a {
       text-decoration: none;
       position: relative;
       top: 20px;
-      font-size: larger;
       color: white;
+      font-weight: lighter;
       font-family: 'Droid Sans',sans-serif;
     }
   }
@@ -17,7 +17,7 @@ header {
     justify-content: space-evenly;
   }
   .nav a:hover {
-    transform: scale(1.35);
+    transform: scale(1.25);
   }
   #home {
     position: relative;
